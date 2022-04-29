@@ -29,7 +29,9 @@ function playRound(playerSelection, computerSelection) {
 
    // }
 
-   if (playerSelection === "Rock")
+   if (playerSelection === "Rock") {
+      
+   }
 
  }
 
