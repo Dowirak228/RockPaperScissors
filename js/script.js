@@ -1,49 +1,44 @@
 
-const array = ["Rock", "Paper", "Scissors"]
 
+const array = ['rock', 'paper', 'scissors']
 
 function computerPlay() {
-   const random1 = Math.floor(Math.random() * array.length);
-   //console.log(array[random1])
-   return array[random1]
+   let randomIndex = Math.floor(Math.random() * array.length);
+   console.log(array[randomIndex]);
+   return array[randomIndex]
 }
-//computerPlay()
+
+const loseMessage = "You're lose"
+const winMessage = "You're win"
+let score = 0
 
 function playRound(playerSelection, computerSelection) {
    // your code here!
-   // if (playerSelection === "Rock" && computerSelection === "Paper") {
-   //    console.log("You lose!");
-   // }  else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-   //    console.log("You win!!!");
-   // } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-   //    console.log("Play again");
-   // } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-   //    console.log("You win!!!");
-   // } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-   //    console.log("You lose!");
-   // } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-   //    console.log("Play again");
-   // } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-
-   // } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-
-   // }
-
-   if (playerSelection === "Rock") {
-      
+   if (playerSelection === computerSelection) {
+      return "Draw";
+   } else if (
+      playerSelection === "rock" && computerSelection === "paper" ||
+      playerSelection === "scissors" && computerSelection === "rock" ||
+      playerSelection === "paper" && computerSelection === "scissors"
+      ) {
+         score--
+      return loseMessage;
+   } else {
+      score++
+      return winMessage;
    }
-
  }
 
-
-
- const playerSelection = "Rock";
+ const playerSelection = "rock";
  const computerSelection = computerPlay();
  console.log(playRound(playerSelection, computerSelection));
 
 
- function game() {
-    for (let i = 0; i < 5; i++) {
+function game() {
+   for (let i = 0; i < 5; i++) {
+      playRound()
+      console.log(`Your score is ${score}`);
+   }
+}
 
-    };
- }
+game()
